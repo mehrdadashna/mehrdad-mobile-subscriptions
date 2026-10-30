@@ -1,0 +1,1114 @@
+{
+  "burstObservatory" : {
+    "pingConfig" : {
+      "connectivity" : "",
+      "destination" : "https:\/\/www.gstatic.com\/generate_204",
+      "interval" : "30s",
+      "sampling" : 5,
+      "timeout" : "3s"
+    },
+    "subjectSelector" : [
+      "proxy-se-xhttp",
+      "backup-node"
+    ]
+  },
+  "dns" : {
+    "disableCache" : false,
+    "hosts" : {
+      "connectivitycheck.gstatic.com" : "142.250.185.67",
+      "cp.cloudflare.com" : "104.16.132.229",
+      "gstatic.com" : "142.250.185.67",
+      "lkfl2.nalog.ru" : "213.24.64.175",
+      "lknpd.nalog.ru" : "213.24.64.181",
+      "www.gstatic.com" : "142.250.185.67"
+    },
+    "queryStrategy" : "UseIPv4",
+    "servers" : [
+      {
+        "address" : "8.8.8.8",
+        "skipFallback" : false
+      },
+      {
+        "address" : "77.88.8.8",
+        "domains" : [
+          "geosite:category-ru",
+          "geosite:whitelist"
+        ],
+        "expectIPs" : [
+          "geoip:!private"
+        ],
+        "skipFallback" : true
+      }
+    ],
+    "tag" : "dns-query"
+  },
+  "inbounds" : [
+    {
+      "listen" : "127.0.0.1",
+      "port" : 10808,
+      "protocol" : "socks",
+      "settings" : {
+        "auth" : "noauth",
+        "udp" : true,
+        "userLevel" : 8
+      },
+      "sniffing" : {
+        "destOverride" : [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "enabled" : true
+      },
+      "tag" : "socks"
+    },
+    {
+      "listen" : "127.0.0.1",
+      "port" : 10809,
+      "protocol" : "http",
+      "settings" : {
+        "userLevel" : 8
+      },
+      "sniffing" : {
+        "destOverride" : [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "enabled" : true
+      },
+      "tag" : "http"
+    }
+  ],
+  "log" : {
+    "loglevel" : "warning"
+  },
+  "outbounds" : [
+    {
+      "mux" : {
+        "concurrency" : -1,
+        "enabled" : false,
+        "xudpConcurrency" : 16,
+        "xudpProxyUDP443" : "reject"
+      },
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "ulyanovsk.gosgenarchive.com",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "",
+                "id" : "ea177896-3d0f-46ff-a4b9-d73f21eda945"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "finalmask" : {
+          "tcp" : [
+            {
+              "settings" : {
+                "delay" : "2-5",
+                "delays" : [
+                  "2-5"
+                ],
+                "length" : "100-200",
+                "lengths" : [
+                  "100-200"
+                ],
+                "maxSplit" : "2",
+                "packets" : "tlshello"
+              },
+              "type" : "fragment"
+            }
+          ]
+        },
+        "network" : "xhttp",
+        "realitySettings" : {
+          "fingerprint" : "firefox",
+          "publicKey" : "4ltYIatUJFFjrW8ZBDGLJaun0BnYIgxn-jmpmTEDGyc",
+          "serverName" : "ulyanovsk.gosgenarchive.com"
+        },
+        "security" : "reality",
+        "sockopt" : {
+          "domainStrategy" : "AsIs",
+          "mark" : 0,
+          "tcpcongestion" : "bbr",
+          "tcpFastOpen" : false,
+          "tcpKeepAliveIdle" : 60,
+          "tcpKeepAliveInterval" : 15,
+          "tcpMaxSeg" : 1400,
+          "tcpMptcp" : false,
+          "tcpNoDelay" : true,
+          "tcpUserTimeout" : 10000,
+          "tcpWindowClamp" : 0
+        },
+        "xhttpSettings" : {
+          "extra" : {
+            "mode" : "auto",
+            "xmux" : {
+              "hKeepAlivePeriod" : 30,
+              "hMaxRequestTimes" : "400-600",
+              "hMaxReusableSecs" : "1800-3600",
+              "maxConcurrency" : "16-32"
+            }
+          },
+          "host" : "ulyanovsk.gosgenarchive.com",
+          "mode" : "auto"
+        }
+      },
+      "tag" : "proxy-se-xhttp"
+    },
+    {
+      "mux" : {
+        "concurrency" : -1,
+        "enabled" : false,
+        "xudpConcurrency" : 16,
+        "xudpProxyUDP443" : "reject"
+      },
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "magnitogorsk.gosgenarchive.com",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "",
+                "id" : "ea177896-3d0f-46ff-a4b9-d73f21eda945"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "finalmask" : {
+          "tcp" : [
+            {
+              "settings" : {
+                "delay" : "2-5",
+                "delays" : [
+                  "2-5"
+                ],
+                "length" : "100-200",
+                "lengths" : [
+                  "100-200"
+                ],
+                "maxSplit" : "2",
+                "packets" : "tlshello"
+              },
+              "type" : "fragment"
+            }
+          ]
+        },
+        "network" : "xhttp",
+        "realitySettings" : {
+          "fingerprint" : "safari",
+          "publicKey" : "4ltYIatUJFFjrW8ZBDGLJaun0BnYIgxn-jmpmTEDGyc",
+          "serverName" : "magnitogorsk.gosgenarchive.com"
+        },
+        "security" : "reality",
+        "sockopt" : {
+          "domainStrategy" : "AsIs",
+          "mark" : 0,
+          "tcpcongestion" : "bbr",
+          "tcpFastOpen" : false,
+          "tcpKeepAliveIdle" : 60,
+          "tcpKeepAliveInterval" : 15,
+          "tcpMaxSeg" : 1400,
+          "tcpMptcp" : false,
+          "tcpNoDelay" : true,
+          "tcpUserTimeout" : 10000,
+          "tcpWindowClamp" : 0
+        },
+        "xhttpSettings" : {
+          "extra" : {
+            "mode" : "auto",
+            "xmux" : {
+              "hKeepAlivePeriod" : 30,
+              "hMaxRequestTimes" : "400-600",
+              "hMaxReusableSecs" : "1800-3600",
+              "maxConcurrency" : "16-32"
+            }
+          },
+          "host" : "magnitogorsk.gosgenarchive.com",
+          "mode" : "auto"
+        }
+      },
+      "tag" : "proxy-se-xhttp-2"
+    },
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "duisburg.gosgenarchive.com",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "",
+                "id" : "ea177896-3d0f-46ff-a4b9-d73f21eda945"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "finalmask" : {
+          "tcp" : [
+            {
+              "settings" : {
+                "delay" : "2-5",
+                "length" : "100-200",
+                "maxSplit" : "2",
+                "packets" : "tlshello"
+              },
+              "type" : "fragment"
+            }
+          ]
+        },
+        "network" : "xhttp",
+        "realitySettings" : {
+          "fingerprint" : "safari",
+          "publicKey" : "4ltYIatUJFFjrW8ZBDGLJaun0BnYIgxn-jmpmTEDGyc",
+          "serverName" : "duisburg.gosgenarchive.com"
+        },
+        "security" : "reality",
+        "xhttpSettings" : {
+          "extra" : {
+            "mode" : "auto",
+            "xmux" : {
+              "hKeepAlivePeriod" : 30,
+              "hMaxRequestTimes" : "400-600",
+              "hMaxReusableSecs" : "1800-3600",
+              "maxConcurrency" : "16-32"
+            }
+          },
+          "host" : "",
+          "mode" : "auto"
+        }
+      },
+      "tag" : "proxy-se-xhttp-3"
+    },
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "bochum.gosgenarchive.com",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "",
+                "id" : "ea177896-3d0f-46ff-a4b9-d73f21eda945"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "finalmask" : {
+          "tcp" : [
+            {
+              "settings" : {
+                "delay" : "2-5",
+                "length" : "100-200",
+                "maxSplit" : "2",
+                "packets" : "tlshello"
+              },
+              "type" : "fragment"
+            }
+          ]
+        },
+        "network" : "xhttp",
+        "realitySettings" : {
+          "fingerprint" : "safari",
+          "publicKey" : "4ltYIatUJFFjrW8ZBDGLJaun0BnYIgxn-jmpmTEDGyc",
+          "serverName" : "bochum.gosgenarchive.com"
+        },
+        "security" : "reality",
+        "xhttpSettings" : {
+          "extra" : {
+            "mode" : "auto",
+            "xmux" : {
+              "hKeepAlivePeriod" : 30,
+              "hMaxRequestTimes" : "400-600",
+              "hMaxReusableSecs" : "1800-3600",
+              "maxConcurrency" : "16-32"
+            }
+          },
+          "host" : "",
+          "mode" : "auto"
+        }
+      },
+      "tag" : "proxy-se-xhttp-4"
+    },
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "berlin.gosgenarchive.com",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "",
+                "id" : "ea177896-3d0f-46ff-a4b9-d73f21eda945"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "finalmask" : {
+          "tcp" : [
+            {
+              "settings" : {
+                "delay" : "2-5",
+                "length" : "100-200",
+                "maxSplit" : "2",
+                "packets" : "tlshello"
+              },
+              "type" : "fragment"
+            }
+          ]
+        },
+        "network" : "xhttp",
+        "realitySettings" : {
+          "fingerprint" : "firefox",
+          "publicKey" : "4ltYIatUJFFjrW8ZBDGLJaun0BnYIgxn-jmpmTEDGyc",
+          "serverName" : "berlin.gosgenarchive.com"
+        },
+        "security" : "reality",
+        "xhttpSettings" : {
+          "extra" : {
+            "mode" : "auto",
+            "xmux" : {
+              "hKeepAlivePeriod" : 30,
+              "hMaxRequestTimes" : "400-600",
+              "hMaxReusableSecs" : "1800-3600",
+              "maxConcurrency" : "16-32"
+            }
+          },
+          "host" : "",
+          "mode" : "auto"
+        }
+      },
+      "tag" : "proxy-se-xhttp-5"
+    },
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "hamburg.gosgenarchive.com",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "",
+                "id" : "ea177896-3d0f-46ff-a4b9-d73f21eda945"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "finalmask" : {
+          "tcp" : [
+            {
+              "settings" : {
+                "delay" : "2-5",
+                "length" : "100-200",
+                "maxSplit" : "2",
+                "packets" : "tlshello"
+              },
+              "type" : "fragment"
+            }
+          ]
+        },
+        "network" : "xhttp",
+        "realitySettings" : {
+          "fingerprint" : "firefox",
+          "publicKey" : "4ltYIatUJFFjrW8ZBDGLJaun0BnYIgxn-jmpmTEDGyc",
+          "serverName" : "hamburg.gosgenarchive.com"
+        },
+        "security" : "reality",
+        "xhttpSettings" : {
+          "extra" : {
+            "mode" : "auto",
+            "xmux" : {
+              "hKeepAlivePeriod" : 30,
+              "hMaxRequestTimes" : "400-600",
+              "hMaxReusableSecs" : "1800-3600",
+              "maxConcurrency" : "16-32"
+            }
+          },
+          "host" : "",
+          "mode" : "auto"
+        }
+      },
+      "tag" : "proxy-se-xhttp-6"
+    },
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "munich.gosgenarchive.com",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "",
+                "id" : "ea177896-3d0f-46ff-a4b9-d73f21eda945"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "finalmask" : {
+          "tcp" : [
+            {
+              "settings" : {
+                "delay" : "2-5",
+                "length" : "100-200",
+                "maxSplit" : "2",
+                "packets" : "tlshello"
+              },
+              "type" : "fragment"
+            }
+          ]
+        },
+        "network" : "xhttp",
+        "realitySettings" : {
+          "fingerprint" : "safari",
+          "publicKey" : "4ltYIatUJFFjrW8ZBDGLJaun0BnYIgxn-jmpmTEDGyc",
+          "serverName" : "munich.gosgenarchive.com"
+        },
+        "security" : "reality",
+        "xhttpSettings" : {
+          "extra" : {
+            "mode" : "auto",
+            "xmux" : {
+              "hKeepAlivePeriod" : 30,
+              "hMaxRequestTimes" : "400-600",
+              "hMaxReusableSecs" : "1800-3600",
+              "maxConcurrency" : "16-32"
+            }
+          },
+          "host" : "",
+          "mode" : "auto"
+        }
+      },
+      "tag" : "proxy-se-xhttp-7"
+    },
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "193.233.91.251",
+            "port" : 448,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "",
+                "id" : "ea177896-3d0f-46ff-a4b9-d73f21eda945"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "grpcSettings" : {
+          "authority" : "",
+          "multiMode" : false,
+          "serviceName" : "xyz"
+        },
+        "network" : "grpc",
+        "realitySettings" : {
+          "fingerprint" : "firefox",
+          "publicKey" : "wSQIBnAc0cYO9JitaNcgZ2LwkTix0_dXVpDjnZxDrCE",
+          "serverName" : "eh.vk.ru"
+        },
+        "security" : "reality",
+        "sockopt" : {
+          "domainStrategy" : "AsIs",
+          "mark" : 0,
+          "tcpcongestion" : "bbr",
+          "tcpFastOpen" : false,
+          "tcpKeepAliveIdle" : 60,
+          "tcpKeepAliveInterval" : 15,
+          "tcpMaxSeg" : 1400,
+          "tcpMptcp" : false,
+          "tcpNoDelay" : true,
+          "tcpUserTimeout" : 10000,
+          "tcpWindowClamp" : 0
+        }
+      },
+      "tag" : "backup-node"
+    },
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "45.12.63.42",
+            "port" : 448,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "",
+                "id" : "ea177896-3d0f-46ff-a4b9-d73f21eda945"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "grpcSettings" : {
+          "authority" : "",
+          "multiMode" : false,
+          "serviceName" : "xyz"
+        },
+        "network" : "grpc",
+        "realitySettings" : {
+          "fingerprint" : "firefox",
+          "publicKey" : "wSQIBnAc0cYO9JitaNcgZ2LwkTix0_dXVpDjnZxDrCE",
+          "serverName" : "eh.vk.ru"
+        },
+        "security" : "reality",
+        "sockopt" : {
+          "domainStrategy" : "AsIs",
+          "mark" : 0,
+          "tcpcongestion" : "bbr",
+          "tcpFastOpen" : false,
+          "tcpKeepAliveIdle" : 60,
+          "tcpKeepAliveInterval" : 15,
+          "tcpMaxSeg" : 1400,
+          "tcpMptcp" : false,
+          "tcpNoDelay" : true,
+          "tcpUserTimeout" : 10000,
+          "tcpWindowClamp" : 0
+        }
+      },
+      "tag" : "backup-node-2"
+    },
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "193.233.219.90",
+            "port" : 448,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "",
+                "id" : "ea177896-3d0f-46ff-a4b9-d73f21eda945"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "grpcSettings" : {
+          "authority" : "",
+          "multiMode" : false,
+          "serviceName" : "xyz"
+        },
+        "network" : "grpc",
+        "realitySettings" : {
+          "fingerprint" : "firefox",
+          "publicKey" : "wSQIBnAc0cYO9JitaNcgZ2LwkTix0_dXVpDjnZxDrCE",
+          "serverName" : "eh.vk.ru"
+        },
+        "security" : "reality",
+        "sockopt" : {
+          "domainStrategy" : "AsIs",
+          "mark" : 0,
+          "tcpcongestion" : "bbr",
+          "tcpFastOpen" : false,
+          "tcpKeepAliveIdle" : 60,
+          "tcpKeepAliveInterval" : 15,
+          "tcpMaxSeg" : 1400,
+          "tcpMptcp" : false,
+          "tcpNoDelay" : true,
+          "tcpUserTimeout" : 10000,
+          "tcpWindowClamp" : 0
+        }
+      },
+      "tag" : "backup-node-3"
+    },
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "193.233.247.3",
+            "port" : 448,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "",
+                "id" : "ea177896-3d0f-46ff-a4b9-d73f21eda945"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "grpcSettings" : {
+          "authority" : "",
+          "multiMode" : false,
+          "serviceName" : "xyz"
+        },
+        "network" : "grpc",
+        "realitySettings" : {
+          "fingerprint" : "firefox",
+          "publicKey" : "wSQIBnAc0cYO9JitaNcgZ2LwkTix0_dXVpDjnZxDrCE",
+          "serverName" : "eh.vk.ru"
+        },
+        "security" : "reality",
+        "sockopt" : {
+          "domainStrategy" : "AsIs",
+          "mark" : 0,
+          "tcpcongestion" : "bbr",
+          "tcpFastOpen" : false,
+          "tcpKeepAliveIdle" : 60,
+          "tcpKeepAliveInterval" : 15,
+          "tcpMaxSeg" : 1400,
+          "tcpMptcp" : false,
+          "tcpNoDelay" : true,
+          "tcpUserTimeout" : 10000,
+          "tcpWindowClamp" : 0
+        }
+      },
+      "tag" : "backup-node-4"
+    },
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "193.233.218.230",
+            "port" : 448,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "",
+                "id" : "ea177896-3d0f-46ff-a4b9-d73f21eda945"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "grpcSettings" : {
+          "authority" : "",
+          "multiMode" : false,
+          "serviceName" : "xyz"
+        },
+        "network" : "grpc",
+        "realitySettings" : {
+          "fingerprint" : "firefox",
+          "publicKey" : "wSQIBnAc0cYO9JitaNcgZ2LwkTix0_dXVpDjnZxDrCE",
+          "serverName" : "eh.vk.ru"
+        },
+        "security" : "reality",
+        "sockopt" : {
+          "domainStrategy" : "AsIs",
+          "mark" : 0,
+          "tcpcongestion" : "bbr",
+          "tcpFastOpen" : false,
+          "tcpKeepAliveIdle" : 60,
+          "tcpKeepAliveInterval" : 15,
+          "tcpMaxSeg" : 1400,
+          "tcpMptcp" : false,
+          "tcpNoDelay" : true,
+          "tcpUserTimeout" : 10000,
+          "tcpWindowClamp" : 0
+        }
+      },
+      "tag" : "backup-node-5"
+    },
+    {
+      "protocol" : "freedom",
+      "tag" : "direct"
+    },
+    {
+      "protocol" : "blackhole",
+      "tag" : "block"
+    },
+    {
+      "protocol" : "dns",
+      "streamSettings" : {
+        "sockopt" : {
+          "dialerProxy" : "proxy"
+        }
+      },
+      "tag" : "dns-out"
+    },
+    {
+      "protocol" : "loopback",
+      "settings" : {
+        "inboundTag" : "emergency-in"
+      },
+      "tag" : "fallback-emergency-loop"
+    },
+    {
+      "protocol" : "loopback",
+      "settings" : {
+        "inboundTag" : "sweden-xhttp-balancer-random-in"
+      },
+      "tag" : "fallback-sweden-xhttp-balancer-random-loop"
+    },
+    {
+      "protocol" : "loopback",
+      "settings" : {
+        "inboundTag" : "emergency-balancer-random-in"
+      },
+      "tag" : "fallback-emergency-balancer-random-loop"
+    }
+  ],
+  "policy" : {
+    "levels" : {
+      "8" : {
+        "connIdle" : 300,
+        "downlinkOnly" : 1,
+        "handshake" : 4,
+        "uplinkOnly" : 1
+      }
+    },
+    "system" : {
+      "statsOutboundDownlink" : true,
+      "statsOutboundUplink" : true
+    }
+  },
+  "remarks" : "🇸🇪 Швеция Auto 🔄 Happ\/Incy xHTTP",
+  "routing" : {
+    "balancers" : [
+      {
+        "fallbackTag" : "fallback-sweden-xhttp-balancer-random-loop",
+        "selector" : [
+          "proxy-se-xhttp"
+        ],
+        "strategy" : {
+          "type" : "leastPing"
+        },
+        "tag" : "Sweden_XHTTP_Balancer"
+      },
+      {
+        "fallbackTag" : "fallback-emergency-balancer-random-loop",
+        "selector" : [
+          "backup-node"
+        ],
+        "strategy" : {
+          "type" : "leastPing"
+        },
+        "tag" : "Emergency_Balancer"
+      },
+      {
+        "fallbackTag" : "fallback-emergency-loop",
+        "selector" : [
+          "proxy-se-xhttp"
+        ],
+        "strategy" : {
+          "type" : "random"
+        },
+        "tag" : "Sweden_XHTTP_Balancer_Random"
+      },
+      {
+        "fallbackTag" : "block",
+        "selector" : [
+          "backup-node"
+        ],
+        "strategy" : {
+          "type" : "random"
+        },
+        "tag" : "Emergency_Balancer_Random"
+      }
+    ],
+    "domainStrategy" : "IPIfNonMatch",
+    "rules" : [
+      {
+        "balancerTag" : "Emergency_Balancer",
+        "inboundTag" : [
+          "emergency-in"
+        ],
+        "type" : "field"
+      },
+      {
+        "balancerTag" : "Sweden_XHTTP_Balancer_Random",
+        "inboundTag" : [
+          "sweden-xhttp-balancer-random-in"
+        ],
+        "type" : "field"
+      },
+      {
+        "balancerTag" : "Emergency_Balancer_Random",
+        "inboundTag" : [
+          "emergency-balancer-random-in"
+        ],
+        "type" : "field"
+      },
+      {
+        "balancerTag" : "Sweden_XHTTP_Balancer",
+        "domain" : [
+          "www.gstatic.com",
+          "gstatic.com",
+          "connectivitycheck.gstatic.com"
+        ],
+        "ip" : [
+          "142.250.185.67"
+        ],
+        "type" : "field"
+      },
+      {
+        "ip" : [
+          "77.88.8.8",
+          "77.88.8.1"
+        ],
+        "outboundTag" : "direct",
+        "type" : "field"
+      },
+      {
+        "balancerTag" : "Sweden_XHTTP_Balancer",
+        "ip" : [
+          "8.8.8.8",
+          "1.1.1.1"
+        ],
+        "type" : "field"
+      },
+      {
+        "balancerTag" : "Emergency_Balancer",
+        "inboundTag" : [
+          "fallback-emergency-in"
+        ],
+        "type" : "field"
+      },
+      {
+        "outboundTag" : "dns-out",
+        "port" : "53",
+        "type" : "field"
+      },
+      {
+        "domain" : [
+          "geosite:win-spy",
+          "geosite:torrent",
+          "geosite:category-ads",
+          "domain:an.yandex.ru",
+          "domain:an.yandex.com",
+          "domain:mobileads.yandex.ru",
+          "domain:adfox.yandex.ru",
+          "domain:adfox.ru",
+          "domain:ads.yandex.ru",
+          "domain:ads.yandex.com",
+          "domain:bs.yandex.ru",
+          "domain:bs.yandex.com",
+          "domain:yabs.yandex.ru",
+          "domain:yandexadexchange.net",
+          "domain:appmetrica.yandex.ru",
+          "domain:appmetrica.yandex.net",
+          "domain:appmetrica.yandex.com",
+          "domain:pagead2.googlesyndication.com",
+          "domain:googleads.g.doubleclick.net",
+          "domain:adservice.google.com"
+        ],
+        "outboundTag" : "block",
+        "type" : "field"
+      },
+      {
+        "balancerTag" : "Sweden_XHTTP_Balancer",
+        "domain" : [
+          "geosite:google-play",
+          "geosite:github",
+          "geosite:twitch-ads",
+          "geosite:youtube",
+          "geosite:telegram",
+          "geosite:microsoft",
+          "geosite:apple",
+          "clients6.google.com",
+          "gemini.google.com",
+          "s.youtube.com",
+          "www.artstation.com",
+          "geosite:google-deepmind",
+          "forums.plutonium.pw",
+          "www.deviantart.com",
+          "flow.google.com",
+          "accounts.youtube.com"
+        ],
+        "type" : "field"
+      },
+      {
+        "domain" : [
+          "geosite:private",
+          "geosite:category-ru",
+          "geosite:whitelist",
+          "geosite:microsoft",
+          "geosite:apple",
+          "geosite:epicgames",
+          "geosite:origin",
+          "geosite:riot",
+          "geosite:escapefromtarkov",
+          "geosite:steam",
+          "geosite:twitch",
+          "geosite:pinterest",
+          "geosite:faceit",
+          "domain:ru",
+          "domain:xn--p1ai",
+          "yastatic.net",
+          "yandexcloud.net",
+          "naydex.net",
+          "yndx.net",
+          "yantp.net",
+          "static-storage.net",
+          "yandex-images.clstorage.net",
+          "smartcaptcha.yandexcloud.net",
+          "wildberries.com",
+          "wbstatic.net",
+          "wbwh.tech",
+          "paywb.com",
+          "motiv.me",
+          "vk.com",
+          "vk.me",
+          "vk.cc",
+          "userapi.com",
+          "vkuseraudio.net",
+          "vk-portal.net",
+          "vkuser.net",
+          "vk-cdn.net",
+          "cdn-vk.net",
+          "netmonet.co",
+          "whoosh.bike",
+          "kaspersky.com",
+          "ds.kaspersky.com",
+          "ksn-ca-geo.kaspersky-labs.com",
+          "ksn-ml-geo.kaspersky-labs.com",
+          "ksn-cinfo-geo.kaspersky-labs.com",
+          "domain:wylsa.com",
+          "domain:t-bank-app.su",
+          "domain:web-cabinet-online.com",
+          "domain:cabinet-web-service.com",
+          "domain:web-cabinet-service.com",
+          "domain:online-service-account.com",
+          "domain:service-account-online.com",
+          "domain:t-static-online.com",
+          "domain:t.finance",
+          "domain:tinkoff-group.com",
+          "domain:tinkoff.ai",
+          "domain:t-tech.dev",
+          "domain:koshelek.app",
+          "domain:sberbank.com",
+          "domain:sber.me",
+          "domain:spasibo.digital",
+          "domain:spasibo.market",
+          "domain:wibes.com",
+          "domain:mp.world",
+          "domain:xn--90ab.com",
+          "domain:ozon.com",
+          "domain:ozon.by",
+          "domain:ozon.travel",
+          "domain:ozon.tech",
+          "domain:ozon.dev",
+          "domain:ozon.express",
+          "domain:tvoyodbo.online",
+          "domain:mts.investments",
+          "domain:alfaonline.org",
+          "domain:alfabank.st",
+          "domain:alfa.me",
+          "domain:alfa-bank.info",
+          "domain:ametrica.org",
+          "domain:pushserver.edna.id",
+          "domain:f6.security",
+          "domain:dion.vc",
+          "domain:t1.cloud",
+          "domain:inplat-tech.com",
+          "domain:servicepipe.tech",
+          "domain:ok.me",
+          "domain:ok.games",
+          "domain:rutube.sport",
+          "domain:avito.com",
+          "domain:ya.cc",
+          "domain:yadi.sk",
+          "domain:moosic.io",
+          "domain:vkontakte.com",
+          "domain:vk.kz",
+          "domain:vkclips.app",
+          "domain:vkuserlive.com",
+          "domain:vkplay.com",
+          "domain:vkplay.live",
+          "domain:vkpay.io",
+          "domain:vkpay.com",
+          "domain:vkpay.app",
+          "domain:payservice.io",
+          "domain:odnoklassniki.by",
+          "domain:odnoklassniki.am",
+          "domain:odnoklassniki.eu",
+          "domain:odnoklassniki.lv",
+          "domain:odnoklassniki.tj",
+          "domain:odnoklassniki.co.ee",
+          "domain:odnoklasniki.by",
+          "domain:odnoklasniki.ua",
+          "domain:my.com",
+          "domain:myadx.net",
+          "domain:mytopf.com",
+          "domain:mytrk.link",
+          "domain:smailru.net",
+          "domain:vmailru.net",
+          "domain:staticmy.com",
+          "domain:attachmy.com",
+          "domain:datacloudmy.com",
+          "domain:mpgw-my.com",
+          "domain:vkcs.cloud",
+          "domain:bizmrg.com",
+          "domain:mcs.st",
+          "domain:tarantool.io",
+          "domain:vkcloud.kz",
+          "domain:vkcloud-static.kz",
+          "domain:vkworkspace.kz",
+          "domain:armgs.team",
+          "domain:cups.online",
+          "domain:yclients.com",
+          "domain:movika.com",
+          "domain:viqeo.tv",
+          "domain:skillbox.pro",
+          "domain:skbx.pro",
+          "domain:playkey.net",
+          "domain:mrgcdn.net",
+          "domain:astrum.top",
+          "domain:gmru.net",
+          "domain:ru.warface.com"
+        ],
+        "outboundTag" : "direct",
+        "type" : "field"
+      },
+      {
+        "ip" : [
+          "geoip:private",
+          "geoip:direct"
+        ],
+        "outboundTag" : "direct",
+        "type" : "field"
+      },
+      {
+        "balancerTag" : "Sweden_XHTTP_Balancer",
+        "network" : "tcp,udp",
+        "type" : "field"
+      }
+    ]
+  },
+  "stats" : {
+
+  }
+}
