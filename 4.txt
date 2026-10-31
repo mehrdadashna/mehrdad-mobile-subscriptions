@@ -2,14 +2,13 @@
   "burstObservatory" : {
     "pingConfig" : {
       "connectivity" : "",
-      "destination" : "https:\/\/www.youtube.com\/generate_204",
+      "destination" : "https:\/\/www.gstatic.com\/generate_204",
       "interval" : "30s",
       "sampling" : 5,
       "timeout" : "3s"
     },
     "subjectSelector" : [
-      "ru-yt",
-      "top-yt",
+      "proxy-tr-hys2",
       "backup-node"
     ]
   },
@@ -82,315 +81,13 @@
     }
   ],
   "log" : {
-    "access" : "\/private\/var\/mobile\/Containers\/Shared\/AppGroup\/334AA6AC-6F54-4B90-BB6A-96321945EEDA\/Library\/Application Support\/Xray\/logs\/access.log",
-    "dnsLog" : true,
-    "loglevel" : "Warning"
-  },
-  "meta" : {
-    "serverDescription" : "Лучшие серверы для YouTube"
+    "loglevel" : "warning"
   },
   "outbounds" : [
     {
-      "mux" : {
-        "concurrency" : -1,
-        "enabled" : false,
-        "xudpConcurrency" : 16,
-        "xudpProxyUDP443" : "reject"
-      },
-      "protocol" : "vless",
-      "settings" : {
-        "vnext" : [
-          {
-            "address" : "saratov.gosgenarchive.com",
-            "port" : 443,
-            "users" : [
-              {
-                "encryption" : "none",
-                "flow" : "",
-                "id" : "ea177896-3d0f-46ff-a4b9-d73f21eda945"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings" : {
-        "finalmask" : {
-          "tcp" : [
-            {
-              "settings" : {
-                "delay" : "2-5",
-                "delays" : [
-                  "2-5"
-                ],
-                "length" : "100-200",
-                "lengths" : [
-                  "100-200"
-                ],
-                "maxSplit" : "2",
-                "packets" : "tlshello"
-              },
-              "type" : "fragment"
-            }
-          ]
-        },
-        "network" : "xhttp",
-        "realitySettings" : {
-          "fingerprint" : "safari",
-          "publicKey" : "4ltYIatUJFFjrW8ZBDGLJaun0BnYIgxn-jmpmTEDGyc",
-          "serverName" : "saratov.gosgenarchive.com"
-        },
-        "security" : "reality",
-        "sockopt" : {
-          "domainStrategy" : "AsIs",
-          "mark" : 0,
-          "tcpcongestion" : "bbr",
-          "tcpFastOpen" : false,
-          "tcpKeepAliveIdle" : 60,
-          "tcpKeepAliveInterval" : 15,
-          "tcpMaxSeg" : 1400,
-          "tcpMptcp" : false,
-          "tcpNoDelay" : true,
-          "tcpUserTimeout" : 10000,
-          "tcpWindowClamp" : 0
-        },
-        "xhttpSettings" : {
-          "extra" : {
-            "mode" : "auto",
-            "xmux" : {
-              "hKeepAlivePeriod" : 30,
-              "hMaxRequestTimes" : "400-600",
-              "hMaxReusableSecs" : "1800-3600",
-              "maxConcurrency" : "16-32"
-            }
-          },
-          "host" : "saratov.gosgenarchive.com",
-          "mode" : "auto"
-        }
-      },
-      "tag" : "top-yt"
-    },
-    {
-      "mux" : {
-        "concurrency" : -1,
-        "enabled" : false,
-        "xudpConcurrency" : 16,
-        "xudpProxyUDP443" : "reject"
-      },
-      "protocol" : "trojan",
-      "settings" : {
-        "servers" : [
-          {
-            "address" : "saratov.gosgenarchive.com",
-            "password" : "8y67d7CY_RYwGrvc69NXhBV_4xz7ZpB3",
-            "port" : 448
-          }
-        ]
-      },
-      "streamSettings" : {
-        "finalmask" : {
-          "tcp" : [
-            {
-              "settings" : {
-                "delay" : "2-5",
-                "length" : "100-200",
-                "maxSplit" : "2",
-                "packets" : "tlshello"
-              },
-              "type" : "fragment"
-            }
-          ]
-        },
-        "grpcSettings" : {
-          "authority" : "saratov.gosgenarchive.com",
-          "multiMode" : false,
-          "serviceName" : "TrojanGRPC"
-        },
-        "network" : "grpc",
-        "security" : "tls",
-        "sockopt" : {
-          "domainStrategy" : "AsIs",
-          "mark" : 0,
-          "tcpcongestion" : "bbr",
-          "tcpFastOpen" : false,
-          "tcpKeepAliveIdle" : 60,
-          "tcpKeepAliveInterval" : 15,
-          "tcpMaxSeg" : 1400,
-          "tcpMptcp" : false,
-          "tcpNoDelay" : true,
-          "tcpUserTimeout" : 10000,
-          "tcpWindowClamp" : 0
-        },
-        "tlsSettings" : {
-          "alpn" : [
-            "h2"
-          ],
-          "enableSessionResumption" : false,
-          "fingerprint" : "firefox",
-          "serverName" : "saratov.gosgenarchive.com"
-        }
-      },
-      "tag" : "top-yt-2"
-    },
-    {
-      "mux" : {
-        "concurrency" : -1,
-        "enabled" : false,
-        "xudpConcurrency" : 16,
-        "xudpProxyUDP443" : "reject"
-      },
       "protocol" : "hysteria",
       "settings" : {
-        "address" : "saratov.gosgenarchive.com",
-        "port" : 8443,
-        "version" : 2
-      },
-      "streamSettings" : {
-        "finalmask" : {
-          "quicParams" : {
-            "congestion" : "bbr",
-            "debug" : false
-          },
-          "udp" : [
-            {
-              "settings" : {
-                "packetSize" : "512-1200",
-                "password" : "x9KvL2mP4nC72H3w"
-              },
-              "type" : "salamander"
-            }
-          ]
-        },
-        "hysteriaSettings" : {
-          "auth" : "ea177896-3d0f-46ff-a4b9-d73f21eda945",
-          "version" : 2
-        },
-        "network" : "hysteria",
-        "security" : "tls",
-        "sockopt" : {
-          "domainStrategy" : "AsIs",
-          "mark" : 0,
-          "tcpcongestion" : "bbr",
-          "tcpFastOpen" : false,
-          "tcpKeepAliveIdle" : 60,
-          "tcpKeepAliveInterval" : 15,
-          "tcpMaxSeg" : 1400,
-          "tcpMptcp" : false,
-          "tcpNoDelay" : false,
-          "tcpUserTimeout" : 10000,
-          "tcpWindowClamp" : 0
-        },
-        "tlsSettings" : {
-          "alpn" : [
-            "h3"
-          ],
-          "enableSessionResumption" : false,
-          "fingerprint" : "edge",
-          "serverName" : "saratov.gosgenarchive.com"
-        }
-      },
-      "tag" : "top-yt-3"
-    },
-    {
-      "protocol" : "vless",
-      "settings" : {
-        "vnext" : [
-          {
-            "address" : "frankfurt.gosgenarchive.com",
-            "port" : 443,
-            "users" : [
-              {
-                "encryption" : "none",
-                "flow" : "",
-                "id" : "ea177896-3d0f-46ff-a4b9-d73f21eda945"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings" : {
-        "finalmask" : {
-          "tcp" : [
-            {
-              "settings" : {
-                "delay" : "2-5",
-                "length" : "100-200",
-                "maxSplit" : "2",
-                "packets" : "tlshello"
-              },
-              "type" : "fragment"
-            }
-          ]
-        },
-        "network" : "xhttp",
-        "realitySettings" : {
-          "fingerprint" : "safari",
-          "publicKey" : "4ltYIatUJFFjrW8ZBDGLJaun0BnYIgxn-jmpmTEDGyc",
-          "serverName" : "frankfurt.gosgenarchive.com"
-        },
-        "security" : "reality",
-        "xhttpSettings" : {
-          "extra" : {
-            "mode" : "auto",
-            "xmux" : {
-              "hKeepAlivePeriod" : 30,
-              "hMaxRequestTimes" : "400-600",
-              "hMaxReusableSecs" : "1800-3600",
-              "maxConcurrency" : "16-32"
-            }
-          },
-          "host" : "",
-          "mode" : "auto"
-        }
-      },
-      "tag" : "top-yt-4"
-    },
-    {
-      "protocol" : "trojan",
-      "settings" : {
-        "servers" : [
-          {
-            "address" : "frankfurt.gosgenarchive.com",
-            "password" : "8y67d7CY_RYwGrvc69NXhBV_4xz7ZpB3",
-            "port" : 448
-          }
-        ]
-      },
-      "streamSettings" : {
-        "finalmask" : {
-          "tcp" : [
-            {
-              "settings" : {
-                "delay" : "2-5",
-                "length" : "100-200",
-                "maxSplit" : "2",
-                "packets" : "tlshello"
-              },
-              "type" : "fragment"
-            }
-          ]
-        },
-        "grpcSettings" : {
-          "authority" : "",
-          "multiMode" : false,
-          "serviceName" : "TrojanGRPC"
-        },
-        "network" : "grpc",
-        "security" : "tls",
-        "tlsSettings" : {
-          "alpn" : [
-            "h2"
-          ],
-          "enableSessionResumption" : false,
-          "fingerprint" : "firefox",
-          "serverName" : "frankfurt.gosgenarchive.com"
-        }
-      },
-      "tag" : "top-yt-5"
-    },
-    {
-      "protocol" : "hysteria",
-      "settings" : {
-        "address" : "frankfurt.gosgenarchive.com",
+        "address" : "ankara.gosgenarchive.com",
         "port" : 8443,
         "version" : 2
       },
@@ -422,347 +119,10 @@
           ],
           "enableSessionResumption" : false,
           "fingerprint" : "ios",
-          "serverName" : "frankfurt.gosgenarchive.com"
+          "serverName" : "ankara.gosgenarchive.com"
         }
       },
-      "tag" : "top-yt-6"
-    },
-    {
-      "protocol" : "vless",
-      "settings" : {
-        "vnext" : [
-          {
-            "address" : "stuttgart.gosgenarchive.com",
-            "port" : 443,
-            "users" : [
-              {
-                "encryption" : "none",
-                "flow" : "",
-                "id" : "ea177896-3d0f-46ff-a4b9-d73f21eda945"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings" : {
-        "finalmask" : {
-          "tcp" : [
-            {
-              "settings" : {
-                "delay" : "2-5",
-                "length" : "100-200",
-                "maxSplit" : "2",
-                "packets" : "tlshello"
-              },
-              "type" : "fragment"
-            }
-          ]
-        },
-        "network" : "xhttp",
-        "realitySettings" : {
-          "fingerprint" : "firefox",
-          "publicKey" : "4ltYIatUJFFjrW8ZBDGLJaun0BnYIgxn-jmpmTEDGyc",
-          "serverName" : "stuttgart.gosgenarchive.com"
-        },
-        "security" : "reality",
-        "xhttpSettings" : {
-          "extra" : {
-            "mode" : "auto",
-            "xmux" : {
-              "hKeepAlivePeriod" : 30,
-              "hMaxRequestTimes" : "400-600",
-              "hMaxReusableSecs" : "1800-3600",
-              "maxConcurrency" : "16-32"
-            }
-          },
-          "host" : "",
-          "mode" : "auto"
-        }
-      },
-      "tag" : "top-yt-7"
-    },
-    {
-      "protocol" : "trojan",
-      "settings" : {
-        "servers" : [
-          {
-            "address" : "stuttgart.gosgenarchive.com",
-            "password" : "8y67d7CY_RYwGrvc69NXhBV_4xz7ZpB3",
-            "port" : 448
-          }
-        ]
-      },
-      "streamSettings" : {
-        "finalmask" : {
-          "tcp" : [
-            {
-              "settings" : {
-                "delay" : "2-5",
-                "length" : "100-200",
-                "maxSplit" : "2",
-                "packets" : "tlshello"
-              },
-              "type" : "fragment"
-            }
-          ]
-        },
-        "grpcSettings" : {
-          "authority" : "",
-          "multiMode" : false,
-          "serviceName" : "TrojanGRPC"
-        },
-        "network" : "grpc",
-        "security" : "tls",
-        "tlsSettings" : {
-          "alpn" : [
-            "h2"
-          ],
-          "enableSessionResumption" : false,
-          "fingerprint" : "safari",
-          "serverName" : "stuttgart.gosgenarchive.com"
-        }
-      },
-      "tag" : "top-yt-8"
-    },
-    {
-      "protocol" : "hysteria",
-      "settings" : {
-        "address" : "stuttgart.gosgenarchive.com",
-        "port" : 8443,
-        "version" : 2
-      },
-      "streamSettings" : {
-        "finalmask" : {
-          "quicParams" : {
-            "congestion" : "bbr",
-            "debug" : false
-          },
-          "udp" : [
-            {
-              "settings" : {
-                "packetSize" : "512-1200",
-                "password" : "x9KvL2mP4nC72H3w"
-              },
-              "type" : "salamander"
-            }
-          ]
-        },
-        "hysteriaSettings" : {
-          "auth" : "ea177896-3d0f-46ff-a4b9-d73f21eda945",
-          "version" : 2
-        },
-        "network" : "hysteria",
-        "security" : "tls",
-        "tlsSettings" : {
-          "alpn" : [
-            "h3"
-          ],
-          "enableSessionResumption" : false,
-          "fingerprint" : "ios",
-          "serverName" : "stuttgart.gosgenarchive.com"
-        }
-      },
-      "tag" : "top-yt-9"
-    },
-    {
-      "mux" : {
-        "concurrency" : -1,
-        "enabled" : false,
-        "xudpConcurrency" : 16,
-        "xudpProxyUDP443" : "reject"
-      },
-      "protocol" : "vless",
-      "settings" : {
-        "vnext" : [
-          {
-            "address" : "lipetsk.gosgenarchive.com",
-            "port" : 443,
-            "users" : [
-              {
-                "encryption" : "none",
-                "flow" : "",
-                "id" : "ea177896-3d0f-46ff-a4b9-d73f21eda945"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings" : {
-        "finalmask" : {
-          "tcp" : [
-            {
-              "settings" : {
-                "delay" : "2-5",
-                "delays" : [
-                  "2-5"
-                ],
-                "length" : "100-200",
-                "lengths" : [
-                  "100-200"
-                ],
-                "maxSplit" : "2",
-                "packets" : "tlshello"
-              },
-              "type" : "fragment"
-            }
-          ]
-        },
-        "network" : "xhttp",
-        "realitySettings" : {
-          "fingerprint" : "safari",
-          "publicKey" : "4ltYIatUJFFjrW8ZBDGLJaun0BnYIgxn-jmpmTEDGyc",
-          "serverName" : "lipetsk.gosgenarchive.com"
-        },
-        "security" : "reality",
-        "sockopt" : {
-          "domainStrategy" : "AsIs",
-          "mark" : 0,
-          "tcpcongestion" : "bbr",
-          "tcpFastOpen" : false,
-          "tcpKeepAliveIdle" : 60,
-          "tcpKeepAliveInterval" : 15,
-          "tcpMaxSeg" : 1400,
-          "tcpMptcp" : false,
-          "tcpNoDelay" : true,
-          "tcpUserTimeout" : 10000,
-          "tcpWindowClamp" : 0
-        },
-        "xhttpSettings" : {
-          "extra" : {
-            "mode" : "auto",
-            "xmux" : {
-              "hKeepAlivePeriod" : 30,
-              "hMaxRequestTimes" : "400-600",
-              "hMaxReusableSecs" : "1800-3600",
-              "maxConcurrency" : "16-32"
-            }
-          },
-          "host" : "lipetsk.gosgenarchive.com",
-          "mode" : "auto"
-        }
-      },
-      "tag" : "top-yt-10"
-    },
-    {
-      "mux" : {
-        "concurrency" : -1,
-        "enabled" : false,
-        "xudpConcurrency" : 16,
-        "xudpProxyUDP443" : "reject"
-      },
-      "protocol" : "trojan",
-      "settings" : {
-        "servers" : [
-          {
-            "address" : "lipetsk.gosgenarchive.com",
-            "password" : "8y67d7CY_RYwGrvc69NXhBV_4xz7ZpB3",
-            "port" : 448
-          }
-        ]
-      },
-      "streamSettings" : {
-        "finalmask" : {
-          "tcp" : [
-            {
-              "settings" : {
-                "delay" : "2-5",
-                "length" : "100-200",
-                "maxSplit" : "2",
-                "packets" : "tlshello"
-              },
-              "type" : "fragment"
-            }
-          ]
-        },
-        "grpcSettings" : {
-          "authority" : "lipetsk.gosgenarchive.com",
-          "multiMode" : false,
-          "serviceName" : "TrojanGRPC"
-        },
-        "network" : "grpc",
-        "security" : "tls",
-        "sockopt" : {
-          "domainStrategy" : "AsIs",
-          "mark" : 0,
-          "tcpcongestion" : "bbr",
-          "tcpFastOpen" : false,
-          "tcpKeepAliveIdle" : 60,
-          "tcpKeepAliveInterval" : 15,
-          "tcpMaxSeg" : 1400,
-          "tcpMptcp" : false,
-          "tcpNoDelay" : true,
-          "tcpUserTimeout" : 10000,
-          "tcpWindowClamp" : 0
-        },
-        "tlsSettings" : {
-          "alpn" : [
-            "h2"
-          ],
-          "enableSessionResumption" : false,
-          "fingerprint" : "firefox",
-          "serverName" : "lipetsk.gosgenarchive.com"
-        }
-      },
-      "tag" : "top-yt-11"
-    },
-    {
-      "mux" : {
-        "concurrency" : -1,
-        "enabled" : false,
-        "xudpConcurrency" : 16,
-        "xudpProxyUDP443" : "reject"
-      },
-      "protocol" : "hysteria",
-      "settings" : {
-        "address" : "lipetsk.gosgenarchive.com",
-        "port" : 8444,
-        "version" : 2
-      },
-      "streamSettings" : {
-        "finalmask" : {
-          "quicParams" : {
-            "congestion" : "bbr",
-            "debug" : false
-          },
-          "udp" : [
-            {
-              "settings" : {
-                "packetSize" : "512-1200",
-                "password" : "x9KvL2mP4nC72H3w"
-              },
-              "type" : "salamander"
-            }
-          ]
-        },
-        "hysteriaSettings" : {
-          "auth" : "ea177896-3d0f-46ff-a4b9-d73f21eda945",
-          "version" : 2
-        },
-        "network" : "hysteria",
-        "security" : "tls",
-        "sockopt" : {
-          "domainStrategy" : "AsIs",
-          "mark" : 0,
-          "tcpcongestion" : "bbr",
-          "tcpFastOpen" : false,
-          "tcpKeepAliveIdle" : 60,
-          "tcpKeepAliveInterval" : 15,
-          "tcpMaxSeg" : 1400,
-          "tcpMptcp" : false,
-          "tcpNoDelay" : false,
-          "tcpUserTimeout" : 10000,
-          "tcpWindowClamp" : 0
-        },
-        "tlsSettings" : {
-          "alpn" : [
-            "h3"
-          ],
-          "enableSessionResumption" : false,
-          "fingerprint" : "safari",
-          "serverName" : "lipetsk.gosgenarchive.com"
-        }
-      },
-      "tag" : "top-yt-12"
+      "tag" : "proxy-tr-hys2"
     },
     {
       "protocol" : "vless",
@@ -1004,14 +364,12 @@
     },
     {
       "protocol" : "dns",
-      "tag" : "dns-out"
-    },
-    {
-      "protocol" : "loopback",
-      "settings" : {
-        "inboundTag" : "top-in"
+      "streamSettings" : {
+        "sockopt" : {
+          "dialerProxy" : "proxy"
+        }
       },
-      "tag" : "fallback-top-loop"
+      "tag" : "dns-out"
     },
     {
       "protocol" : "loopback",
@@ -1023,16 +381,9 @@
     {
       "protocol" : "loopback",
       "settings" : {
-        "inboundTag" : "yt-ru-balancer-random-in"
+        "inboundTag" : "turkey-hys2-balancer-random-in"
       },
-      "tag" : "fallback-yt-ru-balancer-random-loop"
-    },
-    {
-      "protocol" : "loopback",
-      "settings" : {
-        "inboundTag" : "yt-top-balancer-random-in"
-      },
-      "tag" : "fallback-yt-top-balancer-random-loop"
+      "tag" : "fallback-turkey-hys2-balancer-random-loop"
     },
     {
       "protocol" : "loopback",
@@ -1056,28 +407,18 @@
       "statsOutboundUplink" : true
     }
   },
-  "remarks" : "▶️ YouTube",
+  "remarks" : "🇹🇷 Турция Auto 🔄 Happ\/Incy Hys2",
   "routing" : {
     "balancers" : [
       {
-        "fallbackTag" : "fallback-yt-ru-balancer-random-loop",
+        "fallbackTag" : "fallback-turkey-hys2-balancer-random-loop",
         "selector" : [
-          "ru-yt"
+          "proxy-tr-hys2"
         ],
         "strategy" : {
           "type" : "leastPing"
         },
-        "tag" : "YT_RU_Balancer"
-      },
-      {
-        "fallbackTag" : "fallback-yt-top-balancer-random-loop",
-        "selector" : [
-          "top-yt"
-        ],
-        "strategy" : {
-          "type" : "leastPing"
-        },
-        "tag" : "YT_Top_Balancer"
+        "tag" : "Turkey_Hys2_Balancer"
       },
       {
         "fallbackTag" : "fallback-emergency-balancer-random-loop",
@@ -1090,24 +431,14 @@
         "tag" : "Emergency_Balancer"
       },
       {
-        "fallbackTag" : "fallback-top-loop",
-        "selector" : [
-          "ru-yt"
-        ],
-        "strategy" : {
-          "type" : "random"
-        },
-        "tag" : "YT_RU_Balancer_Random"
-      },
-      {
         "fallbackTag" : "fallback-emergency-loop",
         "selector" : [
-          "top-yt"
+          "proxy-tr-hys2"
         ],
         "strategy" : {
           "type" : "random"
         },
-        "tag" : "YT_Top_Balancer_Random"
+        "tag" : "Turkey_Hys2_Balancer_Random"
       },
       {
         "fallbackTag" : "block",
@@ -1130,23 +461,9 @@
         "type" : "field"
       },
       {
-        "balancerTag" : "YT_Top_Balancer",
+        "balancerTag" : "Turkey_Hys2_Balancer_Random",
         "inboundTag" : [
-          "top-in"
-        ],
-        "type" : "field"
-      },
-      {
-        "balancerTag" : "YT_RU_Balancer_Random",
-        "inboundTag" : [
-          "yt-ru-balancer-random-in"
-        ],
-        "type" : "field"
-      },
-      {
-        "balancerTag" : "YT_Top_Balancer_Random",
-        "inboundTag" : [
-          "yt-top-balancer-random-in"
+          "turkey-hys2-balancer-random-in"
         ],
         "type" : "field"
       },
@@ -1154,18 +471,6 @@
         "balancerTag" : "Emergency_Balancer_Random",
         "inboundTag" : [
           "emergency-balancer-random-in"
-        ],
-        "type" : "field"
-      },
-      {
-        "balancerTag" : "YT_Top_Balancer",
-        "domain" : [
-          "www.gstatic.com",
-          "gstatic.com",
-          "connectivitycheck.gstatic.com"
-        ],
-        "ip" : [
-          "142.250.185.67"
         ],
         "type" : "field"
       },
@@ -1178,10 +483,17 @@
         "type" : "field"
       },
       {
-        "balancerTag" : "YT_Top_Balancer",
+        "balancerTag" : "Turkey_Hys2_Balancer",
         "ip" : [
           "8.8.8.8",
           "1.1.1.1"
+        ],
+        "type" : "field"
+      },
+      {
+        "balancerTag" : "Emergency_Balancer",
+        "inboundTag" : [
+          "fallback-emergency-in"
         ],
         "type" : "field"
       },
@@ -1200,35 +512,18 @@
         "type" : "field"
       },
       {
-        "balancerTag" : "YT_RU_Balancer",
-        "domain" : [
-          "geosite:youtube",
-          "domain:youtube.com",
-          "domain:googlevideo.com",
-          "domain:ytimg.com",
-          "domain:youtu.be",
-          "domain:ggpht.com",
-          "domain:youtube-nocookie.com",
-          "domain:yt.be",
-          "full:youtubei.googleapis.com",
-          "full:youtube.googleapis.com",
-          "full:youtubeembeddedplayer.googleapis.com",
-          "full:jnn-pa.googleapis.com",
-          "full:yt3.googleusercontent.com"
-        ],
-        "type" : "field"
-      },
-      {
-        "balancerTag" : "YT_Top_Balancer",
+        "balancerTag" : "Turkey_Hys2_Balancer",
         "domain" : [
           "geosite:google-play",
           "geosite:github",
           "geosite:twitch-ads",
+          "geosite:youtube",
           "geosite:telegram",
           "geosite:microsoft",
           "geosite:apple",
           "clients6.google.com",
           "gemini.google.com",
+          "s.youtube.com",
           "www.artstation.com",
           "geosite:google-deepmind",
           "forums.plutonium.pw",
@@ -1258,6 +553,7 @@
           "yandexcloud.net",
           "naydex.net",
           "yndx.net",
+          "yandex.net",
           "yantp.net",
           "static-storage.net",
           "yandex-images.clstorage.net",
@@ -1389,7 +685,7 @@
         "type" : "field"
       },
       {
-        "balancerTag" : "YT_Top_Balancer",
+        "balancerTag" : "Turkey_Hys2_Balancer",
         "network" : "tcp,udp",
         "type" : "field"
       }
